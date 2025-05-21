@@ -3,77 +3,397 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina Web Jeronimo</title>
+    <title>SUMMIT | Ropa Técnica Gorpcore</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-
-    <!-- Header / Navbar -->
-    <header>
-        <h1> K2 </h1>
-        <nav>
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Productos</a></li>
-                <li><a href="#">Contacto</a></li>
-                <li><a href="#">Carrito (0)</a></li>
-            </ul>
-        </nav>
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <a href="#">K2</a>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="#" class="active">Inicio</a></li>
+                    <li><a href="#">Hombre</a></li>
+                    <li><a href="#">Mujer</a></li>
+                    <li><a href="#">Accesorios</a></li>
+                </ul>
+            </nav>
+            <div class="cart">
+                <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
+            </div>
+            <div class="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </header>
 
-    <img src="https://cms-cdn.thesolesupplier.co.uk/2022/11/hhv.png.webp" alt="Imagen banner montana " width="100%" height="650">
-
-    <!-- Sección de Productos -->
     <main>
-        <h1> Prueba de GIThub</h1>
-        <!-- Seccion de Upper -->
-        <section class="productos">
-            <article class="upper">
-                <h2>ARC'TERYX</h2>
-                <img src="https://preview.redd.it/climbed-mount-fuji-with-my-beta-ar-v0-ov8g6a187cab1.jpg?width=640&crop=smart&auto=webp&s=710e77591997ca501a410132309ffd89d9fd14f6" width="300" height="300" alt="Producto 1">
-                <h3>Campera Arc'teryx Beta AR - Resistencia y Estilo para Cualquier Aventura</h3>
-                <p>U$D 700.00</p>
-                <button>Añadir al Carrito</button>
-            </article>
-            <br><br><hr><br><br>
-
-            <article class="upper">
-                <h2>THE NORTH FACE</h2>
-                <img src="https://loot.com.uy/cdn/shop/files/21_fe42f150-7418-4a9d-819a-188fa02a2373.jpg?v=1722990454" width="300" height="300"alt="Campera North Face" >
-                <h3>Campera North Face 700 - Resistencia y Estilo para Cualquier Aventura</h3>
-                <p>U$D 500.00</p>
-                <button>Añadir al Carrito</button>
-            </article>
-            <br><br><hr><br><br>
-
-            <!-- Seccion Face -->
-            <article class="face">
-                <h2>OAKLEY</h2>
-                <img src="https://sdmntprwestus.oaiusercontent.com/files/00000000-eed0-5230-a6dc-2626dbfd2d06/raw?se=2025-04-03T21%3A09%3A43Z&sp=r&sv=2024-08-04&sr=b&scid=4df7efc8-0e39-5f2f-8e17-6e91c1b0c31a&skoid=e825dac8-9fae-4e05-9fdb-3d74e1880d5a&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-03T15%3A09%3A27Z&ske=2025-04-04T15%3A09%3A27Z&sks=b&skv=2024-08-04&sig=6PangLYCiaLitMpjzFTYEI4vzlECMBdgIZQeDx8qu6c%3D" width="300" height="300"alt="Gafas Oakley 1" >
-                <h3>Gafas Oakley - Proteje tu vision  </h3>
-                <p>U$D 120.00</p>
-                <button>Añadir al Carrito</button>
-            </article>
-            <br><br><hr><br><br>
-
-            <article class="face">
-                <h2>OAKLEY</h2>
-                <img src="https://www.bolle.com/on/demandware.static/-/Sites-bolle-master-catalog/default/dw3f3093d6/Worn%20photos/Pathfinder/BS138009.jpg" width="300" height="300"alt=" Gafas Oakley 2" >
-                <h3>Oakley px pro -  Ideal para tu Aventura</h3>
-                <p>U$D 130.00</p>
-                <button>Añadir al Carrito</button>
-            </article>
-            <br><br><hr><br><br>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>EXPLORÁ SIN LÍMITES</h1>
+                <p>Equipamiento técnico para la ciudad y la montaña</p>
+                <a href="#featured" class="btn">Descubrir colección</a>
+                <img src="https://i.pinimg.com/736x/be/0f/5f/be0f5f223b0af2f14d256794d7d83238.jpg" alt="imagen montana">
+            </div>
         </section>
-        
+
+        <!-- Featured Products -->
+        <section id="featured" class="featured">
+            <div class="container">
+                <div class="section-header">
+                    <h2>PRODUCTOS DESTACADOS</h2>
+                    <p>Diseño funcional para cualquier entorno</p>
+                </div>
+                
+                <div class="product-grid">
+
+                    <!-- Product0 1 -->
+                    <div class="product-card" data-aos="fade-up">
+                        <div class="product-image">
+                            <img src="https://i.pinimg.com/736x/e2/df/b1/e2dfb14312afc7fdc25ba3eb6090dff6.jpg" alt="Campera Técnica Alpine">
+                            <div class="product-tag">Nuevo</div>
+                            <div class="product-actions">
+                                <button class="add-to-cart">Agregar</button>
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Campera Técnica Arc'teryx</h3>
+                            <div class="product-price">$549.99</div>
+                            <div class="product-colors">
+                                <span class="color-dot olive"></span>
+                                <span class="color-dot black"></span>
+                                <span class="color-dot gray"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 2 -->
+                    <div class="product-card" data-aos="fade-up">
+                        <div class="product-image">
+                            <img src="https://i.pinimg.com/736x/0d/ad/d0/0dadd0c2c0e95bc44ea80d66a1dcab7d.jpg" alt="Gorro Arc'teryx">
+                            <div class="product-actions">
+                                <button class="add-to-cart">Agregar</button>
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Gorro arc'teryx</h3>
+                            <div class="product-price">$179.99</div>
+                            <div class="product-colors">
+                                <span class="color-dot black"></span>
+                                <span class="color-dot blue"></span>
+                                <span class="color-dot orange"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Producto 3 -->
+                    <div class="product-card" data-aos="fade-up">
+                        <div class="product-image">
+                            <img src="https://i.pinimg.com/736x/8c/6c/0b/8c6c0b9620a076235836dedfba74215d.jpg" alt="Gafas Oakley s900k">
+                            <div class="product-tag">Bestseller</div>
+                            <div class="product-actions">
+                                <button class="add-to-cart">Agregar</button>
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3> Gafas Oakley s900k</h3>
+                            <div class="product-price">$129.99</div>
+                            <div class="product-colors">
+                                <span class="color-dot olive"></span>
+                                <span class="color-dot black"></span>
+                                <span class="color-dot gray"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product0 4 -->
+                    <div class="product-card" data-aos="fade-up">
+                        <div class="product-image">
+                            <img src="https://i.pinimg.com/736x/82/95/52/829552570085512d1b56f9a3c224bc52.jpg" alt="Campera North Face 700">
+                            <div class="product-actions">
+                                <button class="add-to-cart">Agregar</button>
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>North Face Jacket 700</h3>
+                            <div class="product-price">$459.99</div>
+                            <div class="product-colors">
+                                <span class="color-dot gray"></span>
+                                <span class="color-dot orange"></span>
+                                <span class="color-dot blue"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product0 5 -->
+                    <div class="product-card" data-aos="fade-up">
+                        <div class="product-image">
+                            <img src="https://i.pinimg.com/736x/7d/8f/51/7d8f511770b2d93b9d79c4bc2223accf.jpg" alt="Light Jacket Arc'teryx">
+                            <div class="product-actions">
+                                <button class="add-to-cart">Agregar</button>
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Light Jacket Arc'teryx</h3>
+                            <div class="product-price">$499.99</div>
+                            <div class="product-colors">
+                                <span class="color-dot olive"></span>
+                                <span class="color-dot black"></span>
+                                <span class="color-dot gray"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="product-card" data-aos="fade-up">
+                        <div class="product-image">
+                            <img src="/placeholder.svg?height=400&width=300" alt="Gorro Técnico">
+                            <div class="product-tag">Oferta</div>
+                            <div class="product-actions">
+                                <button class="add-to-cart">Agregar</button>
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Gorro Técnico</h3>
+                            <div class="product-price"><span class="original-price">$49.99</span> $39.99</div>
+                            <div class="product-colors">
+                                <span class="color-dot black"></span>
+                                <span class="color-dot orange"></span>
+                                <span class="color-dot blue"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 7 -->
+                    <div class="product-card" data-aos="fade-up">
+                        <div class="product-image">
+                            <img src="/placeholder.svg?height=400&width=300" alt="Chaqueta Impermeable">
+                            <div class="product-actions">
+                                <button class="add-to-cart">Agregar</button>
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Chaqueta Impermeable</h3>
+                            <div class="product-price">$199.99</div>
+                            <div class="product-colors">
+                                <span class="color-dot olive"></span>
+                                <span class="color-dot blue"></span>
+                                <span class="color-dot orange"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 8 -->
+                    <div class="product-card" data-aos="fade-up">
+                        <div class="product-image">
+                            <img src="/placeholder.svg?height=400&width=300" alt="Botella Térmica">
+                            <div class="product-actions">
+                                <button class="add-to-cart">Agregar</button>
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Botella Térmica</h3>
+                            <div class="product-price">$34.99</div>
+                            <div class="product-colors">
+                                <span class="color-dot black"></span>
+                                <span class="color-dot olive"></span>
+                                <span class="color-dot orange"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section class="categories">
+            <div class="container">
+                <div class="section-header">
+                    <h2>EXPLORA POR CATEGORÍA</h2>
+                    <p>Equipamiento para cada aventura</p>
+                </div>
+                
+                <div class="category-grid">
+                    <div class="category-card" data-aos="fade-up">
+                        <img src="https://i.pinimg.com/736x/af/12/47/af1247456b5231508d6e0a96159834d5.jpg" alt="Imagen hombre escalando montana">
+                        <div class="category-content">
+                            <h3>Hombre</h3>
+                            <a href="#" class="btn-outline">Ver colección</a>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card" data-aos="fade-up">
+                        <img src="https://i.pinimg.com/736x/73/a7/17/73a717c0b9294b6f192bba371c6680d0.jpg" alt="Imagen mujer escalando montana">
+                        <div class="category-content">
+                            <h3>Mujer</h3>
+                            <a href="#" class="btn-outline">Ver colección</a>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card" data-aos="fade-up">
+                        <img src="https://i.pinimg.com/736x/0d/c8/51/0dc851794e945bb67cc7ad7e73cc44d7.jpg" alt="Accesorios Montana">
+                        <div class="category-content">
+                            <h3>Accesorios</h3>
+                            <a href="#" class="btn-outline">Ver colección</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-item" data-aos="fade-up">
+                        <i class="fas fa-truck"></i>
+                        <h3>Envío Gratis</h3>
+                        <p>En compras superiores a $100</p>
+                    </div>
+                    
+                    <div class="feature-item" data-aos="fade-up">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Garantía Técnica</h3>
+                        <p>2 años en todos los productos</p>
+                    </div>
+                    
+                    <div class="feature-item" data-aos="fade-up">
+                        <i class="fas fa-exchange-alt"></i>
+                        <h3>Cambios y Devoluciones</h3>
+                        <p>30 días para cambios</p>
+                    </div>
+                    
+                    <div class="feature-item" data-aos="fade-up">
+                        <i class="fas fa-leaf"></i>
+                        <h3>Materiales Sustentables</h3>
+                        <p>Compromiso con el planeta</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>ÚNETE A NUESTRA COMUNIDAD</h2>
+                    <p>Recibe novedades, guías de aventura y ofertas exclusivas</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Tu email" required>
+                        <button type="submit" class="btn">Suscribirse</button>
+                    </form>
+                </div>
+            </div>
+        </section>
     </main>
-    <img src="https://i.natgeofe.com/n/5b92bab4-a37f-47db-8858-2e1c8754eea2/01BookTalkK2_2x1.jpg" alt="Imagen footer montana " width="100%" height="650">
 
-
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Jeronimo - Todos los derechos reservados</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>K2</h3>
+                    <p>Equipamiento técnico de alta calidad para la ciudad y la montaña. Diseño funcional con estética gorpcore.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Navegación</h3>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Hombre</a></li>
+                        <li><a href="#">Mujer</a></li>
+                        <li><a href="#">Accesorios</a></li>
+                        <li><a href="#">Sobre Nosotros</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Ayuda</h3>
+                    <ul>
+                        <li><a href="#">Envíos</a></li>
+                        <li><a href="#">Devoluciones</a></li>
+                        <li><a href="#">Guía de Tallas</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Outdoor 1250, CABA</li>
+                        <li><i class="fas fa-phone"></i> +54 11 5555-7890</li>
+                        <li><i class="fas fa-envelope"></i> info@k2.com</li>
+                    </ul>
+                    <div class="store-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0168878895474!2d-58.38375908495731!3d-34.60373446500708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa9f0a6da5edb%3A0x11bead4e234e558b!2sObelisco!5e0!3m2!1ses!2sar!4v1621436689548!5m2!1ses!2sar" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 K2. Todos los derechos reservados.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
     </footer>
 
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button class="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items will be added here dynamically -->
+            <div class="empty-cart">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Tu carrito está vacío</p>
+                <a href="#featured" class="btn">Explorar productos</a>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="total-amount">$0.00</span>
+            </div>
+            <button class="btn checkout-btn">Finalizar Compra</button>
+        </div>
+    </div>
+    <div class="cart-overlay"></div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <p>Producto agregado al carrito</p>
+    </div>
+
+    <script src="paginaWeb.js"></script>
 </body>
 </html>
