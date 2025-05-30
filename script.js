@@ -1,0 +1,555 @@
+// Datos de productos
+const productos = [
+  {
+    id: 1,
+    nombre: "Camiseta Oficial Local",
+    precio: 15000,
+    categoria: "camisetas",
+    imagen: "/placeholder.svg?height=300&width=300",
+    descripcion: "Camiseta oficial del Jockey Club de Salta, diseño local con colores tradicionales rojo y blanco.",
+  },
+  {
+    id: 2,
+    nombre: "Short de Entrenamiento",
+    precio: 8500,
+    categoria: "shorts",
+    imagen: "/placeholder.svg?height=300&width=300",
+    descripcion: "Short de entrenamiento profesional, ideal para prácticas y entrenamientos intensivos.",
+  },
+  {
+    id: 3,
+    nombre: "Gorra Oficial",
+    precio: 4500,
+    categoria: "accesorios",
+    imagen: "/placeholder.svg?height=300&width=300",
+    descripcion: "Gorra oficial del club con bordado del escudo y colores institucionales.",
+  },
+  {
+    id: 4,
+    nombre: "Camiseta Visitante",
+    precio: 15000,
+    categoria: "camisetas",
+    imagen: "/placeholder.svg?height=300&width=300",
+    descripcion: "Camiseta oficial visitante con diseño alternativo en colores rojo y blanco.",
+  },
+  {
+    id: 5,
+    nombre: "Botines de Rugby",
+    precio: 35000,
+    categoria: "calzado",
+    imagen: "/placeholder.svg?height=300&width=300",
+    descripcion: "Botines profesionales de rugby con tapones intercambiables y máximo agarre.",
+  },
+  {
+    id: 6,
+    nombre: "Medias Oficiales",
+    precio: 2500,
+    categoria: "accesorios",
+    imagen: "/placeholder.svg?height=300&width=300",
+    descripcion: "Medias oficiales del club, cómodas y resistentes para entrenamientos y partidos.",
+  },
+]
+
+// Carrito de compras
+let carrito = []
+
+// Inicialización
+document.addEventListener("DOMContentLoaded", () => {
+  // Cargar carrito desde localStorage
+  const carritoGuardado = localStorage.getItem("carrito")
+  if (carritoGuardado) {
+    carrito = JSON.parse(carritoGuardado)
+  }
+
+  // Configurar navegación móvil
+  setupMobileNav()
+
+  // Renderizar productos según la página
+  if (document.getElementById("productos-destacados")) {
+    renderProductosDestacados()
+  }
+
+  if (document.getElementById("all-products")) {
+    renderAllProducts()
+  }
+
+  // Actualizar contador del carrito
+  updateCartCount()
+})
+
+// Configurar navegación móvil
+function setupMobileNav() {
+  const mobileMenuBtn = document.querySelector(".mobile-menu-btn")
+  const navMenu = document.querySelector(".nav-menu")
+
+  if (mobileMenuBtn && navMenu) {
+    mobileMenuBtn.addEventListener("click", () => {
+      navMenu.classList.toggle("active")
+      mobileMenuBtn.classList.toggle("active")
+    })
+  }
+
+  // Scroll suave para navegación
+  document.querySelectorAll('.nav-link[href^="#"]').forEach((link) => {
+    link.addEventListener("click", function (e) {
+      const href = this.getAttribute("href")
+
+      // Si es un enlace interno en la misma página
+      if (href.startsWith("#")) {
+        e.preventDefault()
+        const targetId = href.substring(1)
+        const targetElement = document.getElementById(targetId)
+
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: "smooth" })
+        }
+
+        // Cerrar menú móvil si está abierto
+        if (navMenu && navMenu.classList.contains("active")) {
+          navMenu.classList.remove("active")
+          mobileMenuBtn.classList.remove("active")
+        }
+      }
+    })
+  })
+
+  // Formulario de contacto
+  const contactForm = document.getElementById("contact-form")
+  if (contactForm) {
+    contactForm.addEventListener("submit", handleContactForm)
+  }
+}
+
+// Renderizar productos destacados en la página principal
+function renderProductosDestacados() {
+  const container = document.getElementById("productos-destacados")
+  if (!container) return
+
+  // Mostrar solo los primeros 3 productos
+  const productosDestacados = productos.slice(0, 3)
+
+  container.innerHTML = productosDestacados
+    .map(
+      (producto) => `
+        <div class="producto-card">
+            <img src="${producto.imagen}" alt="${producto.nombre}">
+            <div class="producto-info">
+                <h3>${producto.nombre}</h3>
+                <p>${producto.descripcion}</p>
+                <div class="producto-precio">$${producto.precio.toLocaleString()}</div>
+                <div class="producto-actions">
+                    <button class="btn-primary" onclick="addToCart(${producto.id})">
+                        Agregar al Carrito
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M5.4 5L7 13m0 0l-2.5 5M7 13h10"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    `,
+    )
+    .join("")
+}
+
+// Renderizar todos los productos en la página de productos
+function renderAllProducts() {
+  const container = document.getElementById("all-products")
+  if (!container) return
+
+  container.innerHTML = productos
+    .map(
+      (producto) => `
+        <div class="producto-card">
+            <img src="${producto.imagen}" alt="${producto.nombre}">
+            <div class="producto-info">
+                <h3>${producto.nombre}</h3>
+                <p>${producto.descripcion}</p>
+                <div class="producto-precio">$${producto.precio.toLocaleString()}</div>
+                <div class="producto-actions">
+                    <button class="btn-primary" onclick="addToCart(${producto.id})">
+                        Agregar al Carrito
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="16" height="16">
+                            <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M5.4 5L7 13m0 0l-2.5 5M7 13h10"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    `,
+    )
+    .join("")
+}
+
+// Funciones del carrito
+function addToCart(productId) {
+  const producto = productos.find((p) => p.id === productId)
+  if (!producto) {
+    console.error("Producto no encontrado:", productId)
+    return
+  }
+
+  const existingItem = carrito.find((item) => item.id === productId)
+
+  if (existingItem) {
+    existingItem.cantidad += 1
+  } else {
+    carrito.push({
+      id: producto.id,
+      nombre: producto.nombre,
+      precio: producto.precio,
+      imagen: producto.imagen,
+      cantidad: 1,
+    })
+  }
+
+  // Guardar en localStorage
+  localStorage.setItem("carrito", JSON.stringify(carrito))
+
+  // Actualizar contador
+  updateCartCount()
+
+  // Mostrar notificación
+  showNotification(`${producto.nombre} agregado al carrito`)
+
+  console.log("Carrito actualizado:", carrito)
+}
+
+function removeFromCart(productId) {
+  carrito = carrito.filter((item) => item.id !== productId)
+  localStorage.setItem("carrito", JSON.stringify(carrito))
+  updateCartCount()
+  renderCartItems()
+}
+
+function updateCartQuantity(productId, newQuantity) {
+  const item = carrito.find((item) => item.id === productId)
+  if (item) {
+    if (newQuantity <= 0) {
+      removeFromCart(productId)
+    } else {
+      item.cantidad = newQuantity
+      localStorage.setItem("carrito", JSON.stringify(carrito))
+      updateCartCount()
+      renderCartItems()
+    }
+  }
+}
+
+function updateCartCount() {
+  const cartCount = document.getElementById("cart-count")
+  if (cartCount) {
+    const totalItems = carrito.reduce((sum, item) => sum + item.cantidad, 0)
+    cartCount.textContent = totalItems
+  }
+}
+
+function openCartModal() {
+  const modal = document.getElementById("cart-modal")
+  if (modal) {
+    modal.classList.remove("hidden")
+    renderCartItems()
+
+    // Prevenir scroll del body
+    document.body.style.overflow = "hidden"
+  }
+}
+
+function closeCartModal() {
+  const modal = document.getElementById("cart-modal")
+  if (modal) {
+    modal.classList.add("hidden")
+
+    // Restaurar scroll
+    document.body.style.overflow = ""
+  }
+}
+
+function renderCartItems() {
+  const container = document.getElementById("cart-items")
+  const totalElement = document.getElementById("cart-total")
+
+  if (!container || !totalElement) return
+
+  if (carrito.length === 0) {
+    container.innerHTML = `
+            <div class="empty-cart">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="48" height="48">
+                    <circle cx="9" cy="21" r="1"/>
+                    <circle cx="20" cy="21" r="1"/>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+                </svg>
+                <p>Tu carrito está vacío</p>
+                <button class="btn-secondary" onclick="closeCartModal()">Seguir Comprando</button>
+            </div>
+        `
+    totalElement.textContent = "0"
+    return
+  }
+
+  container.innerHTML = carrito
+    .map(
+      (item) => `
+        <div class="cart-item">
+            <div class="cart-item-info">
+                <img src="${item.imagen}" alt="${item.nombre}">
+                <div>
+                    <h4>${item.nombre}</h4>
+                    <p>$${item.precio.toLocaleString()} x ${item.cantidad}</p>
+                </div>
+            </div>
+            <div class="cart-item-actions">
+                <button class="quantity-btn" onclick="updateCartQuantity(${item.id}, ${item.cantidad - 1})">-</button>
+                <span>${item.cantidad}</span>
+                <button class="quantity-btn" onclick="updateCartQuantity(${item.id}, ${item.cantidad + 1})">+</button>
+                <button class="remove-btn" onclick="removeFromCart(${item.id})">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <polyline points="3 6 5 6 21 6"/>
+                        <path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/>
+                        <line x1="10" y1="11" x2="10" y2="17"/>
+                        <line x1="14" y1="11" x2="14" y2="17"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    `,
+    )
+    .join("")
+
+  const total = carrito.reduce((sum, item) => sum + item.precio * item.cantidad, 0)
+  totalElement.textContent = total.toLocaleString()
+}
+
+function checkout() {
+  if (carrito.length === 0) {
+    showNotification("Tu carrito está vacío")
+    return
+  }
+
+  const total = carrito.reduce((sum, item) => sum + item.precio * item.cantidad, 0)
+
+  alert(
+    `¡Gracias por tu compra!\n\nTotal: $${total.toLocaleString()}\n\nEn breve nos contactaremos contigo para coordinar el pago y la entrega.`,
+  )
+
+  // Limpiar carrito
+  carrito = []
+  localStorage.setItem("carrito", JSON.stringify(carrito))
+  updateCartCount()
+  closeCartModal()
+}
+
+// Funciones de utilidad
+function handleContactForm(e) {
+  e.preventDefault()
+
+  const nombre = document.getElementById("nombre").value
+  const email = document.getElementById("email").value
+
+  // Simular envío del formulario
+  alert(
+    `¡Gracias ${nombre}!\n\nTu mensaje ha sido enviado exitosamente. Nos contactaremos contigo a ${email} en las próximas 24 horas.`,
+  )
+
+  // Limpiar formulario
+  e.target.reset()
+}
+
+function scrollToSection(sectionId) {
+  const element = document.getElementById(sectionId)
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" })
+  }
+}
+
+function showNotification(message) {
+  // Crear notificación
+  const notification = document.createElement("div")
+  notification.className = "notification"
+  notification.innerHTML = `
+        <div class="notification-content">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span>${message}</span>
+        </div>
+    `
+
+  document.body.appendChild(notification)
+
+  // Animar entrada
+  setTimeout(() => {
+    notification.classList.add("show")
+  }, 10)
+
+  // Remover después de 3 segundos
+  setTimeout(() => {
+    notification.classList.remove("show")
+    setTimeout(() => {
+      document.body.removeChild(notification)
+    }, 300)
+  }, 3000)
+}
+
+// Agregar estilos para las notificaciones
+const style = document.createElement("style")
+style.textContent = `
+    .notification {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        transform: translateX(110%);
+        transition: transform 0.3s ease;
+        z-index: 2000;
+    }
+    
+    .notification.show {
+        transform: translateX(0);
+    }
+    
+    .notification-content {
+        background: var(--primary-red);
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: var(--border-radius-lg);
+        box-shadow: var(--shadow-lg);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+    
+    .notification-content svg {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+    
+    .empty-cart {
+        text-align: center;
+        padding: 2rem 0;
+        color: var(--gray-500);
+    }
+    
+    .empty-cart svg {
+        margin-bottom: 1rem;
+        color: var(--gray-400);
+    }
+    
+    .empty-cart p {
+        margin-bottom: 1.5rem;
+    }
+    
+    .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--gray-200);
+    }
+    
+    .cart-item-info {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .cart-item-info img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: var(--border-radius);
+    }
+    
+    .cart-item-info h4 {
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+    }
+    
+    .cart-item-info p {
+        color: var(--gray-600);
+        font-size: 0.875rem;
+    }
+    
+    .cart-item-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .quantity-btn {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        border: none;
+        background: var(--gray-200);
+        color: var(--gray-700);
+        font-weight: bold;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+    }
+    
+    .quantity-btn:hover {
+        background: var(--gray-300);
+    }
+    
+    .remove-btn {
+        background: none;
+        border: none;
+        color: var(--gray-500);
+        cursor: pointer;
+        padding: 0.25rem;
+        margin-left: 0.5rem;
+        transition: var(--transition);
+    }
+    
+    .remove-btn:hover {
+        color: var(--primary-red);
+    }
+    
+    .remove-btn svg {
+        width: 1rem;
+        height: 1rem;
+    }
+    
+    .mobile-menu-btn.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .mobile-menu-btn.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile-menu-btn.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    @media (max-width: 768px) {
+        .nav-menu {
+            position: fixed;
+            top: 4rem;
+            left: 0;
+            right: 0;
+            background: white;
+            flex-direction: column;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .nav-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .mobile-menu-btn {
+            display: flex;
+        }
+    }
+`
+document.head.appendChild(style)

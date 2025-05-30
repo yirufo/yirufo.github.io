@@ -3,396 +3,340 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SUMMIT | Ropa Técnica Gorpcore</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Jockey Club de Salta - Tradición y Pasión</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@1,600&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <header id="header">
-        <div class="container">
-            <div class="logo">
-                <a href="#">K2</a>
+    <!-- Navegación moderna -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <img src="/imagenes/logo-global.png" alt="Escudo Jockey Club" class="nav-logo">
+                <!-- <span class="nav-title">Jockey Club Salta</span> -->
             </div>
-            <nav>
-                <ul class="menu">
-                    <li><a href="#" class="active">Inicio</a></li>
-                    <li><a href="#">Hombre</a></li>
-                    <li><a href="#">Mujer</a></li>
-                    <li><a href="#">Accesorios</a></li>
-                </ul>
-            </nav>
-            <div class="cart">
-                <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a>
-            </div>
-            <div class="mobile-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            
+            <ul class="nav-menu">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#historia" class="nav-link">Historia</a></li>
+                <li><a href="#productos" class="nav-link">Tienda</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <div class="cart-container" onclick="openCartModal()">
+                    <svg class="cart-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13v6a2 2 0 002 2h6a2 2 0 002-2v-6"/>
+                    </svg>
+                    <span class="cart-badge" id="cart-count">0</span>
+                </div>
+                <button class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>EXPLORÁ SIN LÍMITES</h1>
-                <p>Equipamiento técnico para la ciudad y la montaña</p>
-                <a href="#featured" class="btn">Descubrir colección</a>
+    <!-- Hero Section Moderno -->
+    <section id="inicio" class="hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">Est. 1965</div>
+            <h1 class="hero-title">
+                <span class="title-main">Jockey Club</span>
+                <span class="title-sub">de Salta</span>
+            </h1>
+            <p class="hero-description">
+                Más de 60 años forjando campeones, construyendo tradición y viviendo la pasión del rugby con honor y excelencia.
+            </p>
+            <div class="hero-actions">
+                <button class="btn-primary" onclick="scrollToSection('productos')">
+                    Explorar Tienda
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M5 12h14m-7-7l7 7-7 7"/>
+                    </svg>
+                </button>
+                <button class="btn-secondary" onclick="scrollToSection('historia')">
+                    Nuestra Historia
+                </button>
             </div>
-        </section>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-number">60+</span>
+                <span class="stat-label">Años</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">19</span>
+                <span class="stat-label">Títulos</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">2000+</span>
+                <span class="stat-label">Socios</span>
+            </div>
+        </div>
+    </section>
 
-        <!-- Featured Products -->
-        <section id="featured" class="featured">
-            <div class="container">
-                <div class="section-header">
-                    <h2>PRODUCTOS DESTACADOS</h2>
-                    <p>Diseño funcional para cualquier entorno</p>
+    <!-- Historia Section -->
+    <section id="historia" class="historia">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Tradición</span>
+                <h2 class="section-title">Nuestra Historia</h2>
+                <p class="section-subtitle">
+                    Una institución que ha marcado la historia del rugby salteño
+                </p>
+            </div>
+            
+            <div class="historia-grid">
+                <div class="historia-content">
+                    <div class="timeline-item">
+                        <div class="timeline-year">1965</div>
+                        <div class="timeline-content">
+                            <h3>Fundación del Club</h3>
+                            <p>Nace el Jockey Club de Salta como una institución deportiva y social de prestigio en la provincia.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">1990</div>
+                        <div class="timeline-content">
+                            <h3>Primeros Titulo Reginal </h3>
+                            <p>El Jockey Club de Salta se corona campeon del torneo "Alejando Cornejo" siendo el primer club de salta en ganar un regional.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2016</div>
+                        <div class="timeline-content">
+                            <h3>Ingreso histórico al Torneo del Interior A</h3>
+                            <p>El Club se consolida como el mejor de la región y gana una histórica plaza en el TDI A, el torneo mas prestigioso del país.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-content">
+                            <h3>Presente</h3>
+                            <p>Seguimos creciendo como comunidad y sobre todo seguimos formando campeones y personas.</p>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="product-grid">
-
-                    <!-- Product0 1 -->
-                    <div class="product-card" data-aos="fade-up">
-                        <div class="product-image">
-                            <img src="https://i.pinimg.com/736x/e2/df/b1/e2dfb14312afc7fdc25ba3eb6090dff6.jpg" alt="Campera Técnica Alpine">
-                            <div class="product-tag">Nuevo</div>
-                            <div class="product-actions">
-                                <button class="add-to-cart">Agregar</button>
-                                <button class="quick-view"><i class="fas fa-eye"></i></button>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h3>Campera Técnica Arc'teryx</h3>
-                            <div class="product-price">$549.99</div>
-                            <div class="product-colors">
-                                <span class="color-dot olive"></span>
-                                <span class="color-dot black"></span>
-                                <span class="color-dot gray"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Producto 2 -->
-                    <div class="product-card" data-aos="fade-up">
-                        <div class="product-image">
-                            <img src="https://i.pinimg.com/736x/0d/ad/d0/0dadd0c2c0e95bc44ea80d66a1dcab7d.jpg" alt="Gorro Arc'teryx">
-                            <div class="product-actions">
-                                <button class="add-to-cart">Agregar</button>
-                                <button class="quick-view"><i class="fas fa-eye"></i></button>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h3>Gorro arc'teryx</h3>
-                            <div class="product-price">$179.99</div>
-                            <div class="product-colors">
-                                <span class="color-dot black"></span>
-                                <span class="color-dot blue"></span>
-                                <span class="color-dot orange"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Producto 3 -->
-                    <div class="product-card" data-aos="fade-up">
-                        <div class="product-image">
-                            <img src="https://i.pinimg.com/736x/8c/6c/0b/8c6c0b9620a076235836dedfba74215d.jpg" alt="Gafas Oakley s900k">
-                            <div class="product-tag">Bestseller</div>
-                            <div class="product-actions">
-                                <button class="add-to-cart">Agregar</button>
-                                <button class="quick-view"><i class="fas fa-eye"></i></button>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h3> Gafas Oakley s900k</h3>
-                            <div class="product-price">$129.99</div>
-                            <div class="product-colors">
-                                <span class="color-dot olive"></span>
-                                <span class="color-dot black"></span>
-                                <span class="color-dot gray"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product0 4 -->
-                    <div class="product-card" data-aos="fade-up">
-                        <div class="product-image">
-                            <img src="https://i.pinimg.com/736x/82/95/52/829552570085512d1b56f9a3c224bc52.jpg" alt="Campera North Face 700">
-                            <div class="product-actions">
-                                <button class="add-to-cart">Agregar</button>
-                                <button class="quick-view"><i class="fas fa-eye"></i></button>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h3>North Face Jacket 700</h3>
-                            <div class="product-price">$459.99</div>
-                            <div class="product-colors">
-                                <span class="color-dot gray"></span>
-                                <span class="color-dot orange"></span>
-                                <span class="color-dot blue"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product0 5 -->
-                    <div class="product-card" data-aos="fade-up">
-                        <div class="product-image">
-                            <img src="https://i.pinimg.com/736x/7d/8f/51/7d8f511770b2d93b9d79c4bc2223accf.jpg" alt="Light Jacket Arc'teryx">
-                            <div class="product-actions">
-                                <button class="add-to-cart">Agregar</button>
-                                <button class="quick-view"><i class="fas fa-eye"></i></button>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h3>Light Jacket Arc'teryx</h3>
-                            <div class="product-price">$499.99</div>
-                            <div class="product-colors">
-                                <span class="color-dot olive"></span>
-                                <span class="color-dot black"></span>
-                                <span class="color-dot gray"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 6 -->
-                    <div class="product-card" data-aos="fade-up">
-                        <div class="product-image">
-                            <img src="/placeholder.svg?height=400&width=300" alt="Gorro Técnico">
-                            <div class="product-tag">Oferta</div>
-                            <div class="product-actions">
-                                <button class="add-to-cart">Agregar</button>
-                                <button class="quick-view"><i class="fas fa-eye"></i></button>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h3>Gorro Técnico</h3>
-                            <div class="product-price"><span class="original-price">$49.99</span> $39.99</div>
-                            <div class="product-colors">
-                                <span class="color-dot black"></span>
-                                <span class="color-dot orange"></span>
-                                <span class="color-dot blue"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 7 -->
-                    <div class="product-card" data-aos="fade-up">
-                        <div class="product-image">
-                            <img src="/placeholder.svg?height=400&width=300" alt="Chaqueta Impermeable">
-                            <div class="product-actions">
-                                <button class="add-to-cart">Agregar</button>
-                                <button class="quick-view"><i class="fas fa-eye"></i></button>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h3>Chaqueta Impermeable</h3>
-                            <div class="product-price">$199.99</div>
-                            <div class="product-colors">
-                                <span class="color-dot olive"></span>
-                                <span class="color-dot blue"></span>
-                                <span class="color-dot orange"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 8 -->
-                    <div class="product-card" data-aos="fade-up">
-                        <div class="product-image">
-                            <img src="/placeholder.svg?height=400&width=300" alt="Botella Térmica">
-                            <div class="product-actions">
-                                <button class="add-to-cart">Agregar</button>
-                                <button class="quick-view"><i class="fas fa-eye"></i></button>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h3>Botella Térmica</h3>
-                            <div class="product-price">$34.99</div>
-                            <div class="product-colors">
-                                <span class="color-dot black"></span>
-                                <span class="color-dot olive"></span>
-                                <span class="color-dot orange"></span>
-                            </div>
+                <div class="historia-visual">
+                    <div class="image-card">
+                        <img src="/imagenes/nuestra-historia.webp" alt="Historia del Club">
+                        <div class="image-overlay">
+                            <h4>Tradición que perdura</h4>
+                            <p>Más de medio siglo formando campeones</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Categories Section -->
-        <section class="categories">
-            <div class="container">
-                <div class="section-header">
-                    <h2>EXPLORA POR CATEGORÍA</h2>
-                    <p>Equipamiento para cada aventura</p>
+    <!-- Productos Section -->
+    <section id="productos" class="productos">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Tienda Oficial</span>
+                <h2 class="section-title">Productos Destacados</h2>
+                <p class="section-subtitle">
+                    Lleva contigo los colores y la pasión del Jockey Club
+                </p>
+            </div>
+            
+            <div class="productos-grid" id="productos-destacados">
+                <!-- Los productos se cargarán dinámicamente -->
+            </div>
+            
+            <div class="productos-cta">
+                <a href="productos.html" class="btn-outline">
+                    Ver Todos los productos
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M5 12h14m-7-7l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto" class="contacto">
+        <div class="container">
+            <div class="contacto-grid">
+                <div class="contacto-info">
+                    <div class="section-header">
+                        <span class="section-badge">Contacto</span>
+                        <h2 class="section-title">Conecta con Nosotros</h2>
+                        <p class="section-subtitle">
+                            Estamos aquí para ayudarte y responder todas tus consultas
+                        </p>
+                    </div>
+                    
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
+                            <div class="contact-content">
+                                <h4>Ubicación</h4>
+                                <p>LIMACHE RUTA 51 , KM 1 , AV. KENNEDY S/N.<br>Salta Capital, Argentina</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-content">
+                                <h4>Teléfono</h4>
+                                <p>+54 387 421-5678</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <div class="contact-content">
+                                <h4>Email</h4>
+                                <p>tienda@jockeyclubsalta.com.ar</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="category-grid">
-                    <div class="category-card" data-aos="fade-up">
-                        <img src="https://i.pinimg.com/736x/af/12/47/af1247456b5231508d6e0a96159834d5.jpg" alt="Imagen hombre escalando montana">
-                        <div class="category-content">
-                            <h3>Hombre</h3>
-                            <a href="#" class="btn-outline">Ver colección</a>
+                <div class="contacto-form">
+                    <form id="contact-form" class="modern-form">
+                        <div class="form-group">
+                            <input type="text" id="nombre" name="nombre" placeholder=" " required>
+                            <label for="nombre">Nombre completo</label>
                         </div>
-                    </div>
-                    
-                    <div class="category-card" data-aos="fade-up">
-                        <img src="https://i.pinimg.com/736x/73/a7/17/73a717c0b9294b6f192bba371c6680d0.jpg" alt="Imagen mujer escalando montana">
-                        <div class="category-content">
-                            <h3>Mujer</h3>
-                            <a href="#" class="btn-outline">Ver colección</a>
+                        
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder=" " required>
+                            <label for="email">Correo electrónico</label>
                         </div>
-                    </div>
-                    
-                    <div class="category-card" data-aos="fade-up">
-                        <img src="https://i.pinimg.com/736x/0d/c8/51/0dc851794e945bb67cc7ad7e73cc44d7.jpg" alt="Accesorios Montana">
-                        <div class="category-content">
-                            <h3>Accesorios</h3>
-                            <a href="#" class="btn-outline">Ver colección</a>
+                        
+                        <div class="form-group">
+                            <textarea id="mensaje" name="mensaje" placeholder=" " rows="5" required></textarea>
+                            <label for="mensaje">Tu mensaje</label>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section class="features">
-            <div class="container">
-                <div class="features-grid">
-                    <div class="feature-item" data-aos="fade-up">
-                        <i class="fas fa-truck"></i>
-                        <h3>Envío Gratis</h3>
-                        <p>En compras superiores a $100</p>
-                    </div>
-                    
-                    <div class="feature-item" data-aos="fade-up">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>Garantía Técnica</h3>
-                        <p>2 años en todos los productos</p>
-                    </div>
-                    
-                    <div class="feature-item" data-aos="fade-up">
-                        <i class="fas fa-exchange-alt"></i>
-                        <h3>Cambios y Devoluciones</h3>
-                        <p>30 días para cambios</p>
-                    </div>
-                    
-                    <div class="feature-item" data-aos="fade-up">
-                        <i class="fas fa-leaf"></i>
-                        <h3>Materiales Sustentables</h3>
-                        <p>Compromiso con el planeta</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Newsletter Section -->
-        <section class="newsletter">
-            <div class="container">
-                <div class="newsletter-content">
-                    <h2>ÚNETE A NUESTRA COMUNIDAD</h2>
-                    <p>Recibe novedades, guías de aventura y ofertas exclusivas</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Tu email" required>
-                        <button type="submit" class="btn">Suscribirse</button>
+                        
+                        <button type="submit" class="btn-primary full-width">
+                            Enviar Mensaje
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22,2 15,22 11,13 2,9 22,2"/>
+                            </svg>
+                        </button>
                     </form>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer>
+    <!-- Footer Moderno -->
+    <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h3>K2</h3>
-                    <p>Equipamiento técnico de alta calidad para la ciudad y la montaña. Diseño funcional con estética gorpcore.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-pinterest"></i></a>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="/imagenes/Recurso-8.png" alt="Logo Jockey Club" class="footer-logo">
+                    <h3>Jockey Club de Salta</h3>
+                    <p>Tradición, honor y pasión por el rugby desde 1965</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987 6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.611-3.197-1.559-.748-.948-1.197-2.25-1.197-3.654 0-1.404.449-2.706 1.197-3.654.749-.948 1.9-1.559 3.197-1.559 1.297 0 2.448.611 3.197 1.559.748.948 1.197 2.25 1.197 3.654 0 1.404-.449 2.706-1.197 3.654-.749.948-1.9 1.559-3.197 1.559z"/>
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
                     </div>
                 </div>
                 
-                <div class="footer-column">
-                    <h3>Navegación</h3>
-                    <ul>
-                        <li><a href="#">Inicio</a></li>
-                        <li><a href="#">Hombre</a></li>
-                        <li><a href="#">Mujer</a></li>
-                        <li><a href="#">Accesorios</a></li>
-                        <li><a href="#">Sobre Nosotros</a></li>
-                        <li><a href="#">Contacto</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Ayuda</h3>
-                    <ul>
-                        <li><a href="#">Envíos</a></li>
-                        <li><a href="#">Devoluciones</a></li>
-                        <li><a href="#">Guía de Tallas</a></li>
-                        <li><a href="#">Términos y Condiciones</a></li>
-                        <li><a href="#">Política de Privacidad</a></li>
-                        <li><a href="#">FAQ</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Contacto</h3>
-                    <ul class="contact-info">
-                        <li><i class="fas fa-map-marker-alt"></i> Av. Outdoor 1250, CABA</li>
-                        <li><i class="fas fa-phone"></i> +54 11 5555-7890</li>
-                        <li><i class="fas fa-envelope"></i> info@k2.com</li>
-                    </ul>
-                    <div class="store-map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.0168878895474!2d-58.38375908495731!3d-34.60373446500708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4aa9f0a6da5edb%3A0x11bead4e234e558b!2sObelisco!5e0!3m2!1ses!2sar!4v1621436689548!5m2!1ses!2sar" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Club</h4>
+                        <ul>
+                            <li><a href="#historia">Historia</a></li>
+                            <li><a href="#contacto">Contacto</a></li>
+                            <li><a href="#">Instalaciones</a></li>
+                            <li><a href="#">Equipos</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Tienda</h4>
+                        <ul>
+                            <li><a href="productos.html">Productos</a></li>
+                            <li><a href="#">Envíos</a></li>
+                            <li><a href="#">Devoluciones</a></li>
+                            <li><a href="#">Tallas</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 K2. Todos los derechos reservados.</p>
-                <div class="payment-methods">
-                    <i class="fab fa-cc-visa"></i>
-                    <i class="fab fa-cc-mastercard"></i>
-                    <i class="fab fa-cc-amex"></i>
-                    <i class="fab fa-cc-paypal"></i>
+                <p>&copy; 2024 Jockey Club de Salta. Todos los derechos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#">Términos y Condiciones</a>
+                    <a href="#">Política de Privacidad</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Cart Sidebar -->
-    <div class="cart-sidebar">
-        <div class="cart-header">
-            <h3>Tu Carrito</h3>
-            <button class="close-cart"><i class="fas fa-times"></i></button>
-        </div>
-        <div class="cart-items">
-            <!-- Cart items will be added here dynamically -->
-            <div class="empty-cart">
-                <i class="fas fa-shopping-bag"></i>
-                <p>Tu carrito está vacío</p>
-                <a href="#featured" class="btn">Explorar productos</a>
+    <!-- Modal del Carrito -->
+    <div id="cart-modal" class="modal hidden">
+        <div class="modal-backdrop" onclick="closeCartModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Carrito de Compras</h3>
+                <button class="modal-close" onclick="closeCartModal()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="cart-items"></div>
+                <div class="cart-total">
+                    <strong>Total: $<span id="cart-total">0</span></strong>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeCartModal()">Seguir Comprando</button>
+                <button class="btn-primary" onclick="checkout()">Finalizar Compra</button>
             </div>
         </div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>Total:</span>
-                <span class="total-amount">$0.00</span>
-            </div>
-            <button class="btn checkout-btn">Finalizar Compra</button>
-        </div>
-    </div>
-    <div class="cart-overlay"></div>
-
-    <!-- Notification -->
-    <div class="notification" id="notification">
-        <p>Producto agregado al carrito</p>
     </div>
 
-    <script src="paginaWeb.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
