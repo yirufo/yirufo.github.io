@@ -195,9 +195,9 @@ body {
   position: absolute;
   inset: 0;
   background-image: url("/imagenes/portada-rugby.webp");
+  filter: grayscale(10%) blur(3px) brightness(0.9);
   background-size: cover;
   background-position: center;
-  opacity: 0.9;
 }
 
 .hero-overlay {
@@ -239,13 +239,13 @@ body {
 
 .title-sub {
   display: block;
-  color: var(--gray-800);
+  color: var(--gray-900);
   font-weight: 600;
 }
 
 .hero-description {
-  font-size: 1.25rem;
-  color: var(--gray-600);
+  font-size: 1rem;
+  color: var(--gray-900);
   margin-bottom: 3rem;
   max-width: 600px;
   margin-left: auto;
@@ -269,6 +269,7 @@ body {
 
 .stat-item {
   text-align: center;
+  z-index: 2;
 }
 
 .stat-number {
@@ -472,7 +473,8 @@ body {
 /* Productos Section */
 .productos {
   padding: 6rem 0;
-  background: var(--gray-50);
+  background-image: url(/imagenes/portada-golf.webp) ;
+
 }
 
 .productos-grid {
