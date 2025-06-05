@@ -127,7 +127,7 @@ body {
   gap: 1rem;
 }
 
-/* SOLUCIÓN PARA EL MENÚ MÓVIL - Agrega esto a tu style.css */
+
 
 @media (max-width: 768px) {
   .mobile-menu-btn {
@@ -151,7 +151,7 @@ body {
     z-index: 999;
   }
 
-  /* ESTA ES LA CLASE CLAVE QUE FALTABA */
+  
   .nav-menu.active {
     transform: translateY(0);
     opacity: 1;
@@ -905,7 +905,7 @@ body {
 }
 
 /* Responsive Design */
-/* REEMPLAZA esta sección en tu archivo style.css */
+
 @media (max-width: 768px) {
   .mobile-menu-btn {
     display: flex;
@@ -1077,7 +1077,7 @@ body {
   border: 0;
 }
 
-/* Añadir estilos específicos para la página de productos */
+
 
 /* Página de Productos */
 .page-header {
@@ -1330,4 +1330,112 @@ section {
 img {
   max-width: 100%;
   height: auto;
+}
+
+/* CENTRAR LAS TARJETAS DE PRODUCTOS Y AGREGAR FONDO AL TEXTO */
+
+/* 1. CENTRAR LAS TARJETAS DE PRODUCTOS */
+.productos-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.producto-card {
+  background: white;
+  border-radius: var(--border-radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  position: relative;
+  width: 300px; /* Ancho fijo para mejor control */
+  max-width: 100%;
+}
+
+/* 2. FONDO BLANCO REDONDEADO PARA EL TEXTO */
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-badge {
+  display: inline-block;
+  background: var(--primary-red-light);
+  color: var(--primary-red);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  order: 1; /* Aparece primero */
+}
+
+.section-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  color: var(--gray-900);
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem 2rem;
+  border-radius: 1.5rem;
+  display: inline-block;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  order: 2; /* Aparece segundo */
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--gray-600);
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.75rem 1.5rem;
+  border-radius: 1rem;
+  display: inline-block;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  order: 3; /* Aparece tercero */
+}
+
+/* 3. RESPONSIVE PARA MÓVIL */
+@media (max-width: 768px) {
+  .productos-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .producto-card {
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  .section-title {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.8rem;
+  }
+  
+  .section-subtitle {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .section-subtitle {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+  }
 }
