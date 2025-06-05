@@ -77,16 +77,30 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCartCount()
 })
 
-// Configurar navegación móvil
+
+
 function setupMobileNav() {
-  const mobileMenuBtn = document.querySelector(".mobile-menu-btn")
-  const navMenu = document.querySelector(".nav-menu")
+  const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+  const navMenu = document.querySelector(".nav-menu");
 
   if (mobileMenuBtn && navMenu) {
-    mobileMenuBtn.addEventListener("click", () => {
-      navMenu.classList.toggle("active")
-      mobileMenuBtn.classList.toggle("active")
-    })
+    // Evento click para el botón hamburguesa
+    mobileMenuBtn.addEventListener("click", function() {
+      navMenu.classList.toggle("active");
+      mobileMenuBtn.classList.toggle("active");
+      
+      // Agrega esto para depuración
+      console.log("Menú toggle:", navMenu.classList.contains("active"));
+    });
+    
+    // Cerrar menú al hacer click en un enlace
+    const navLinks = navMenu.querySelectorAll("a");
+    navLinks.forEach(link => {
+      link.addEventListener("click", function() {
+        navMenu.classList.remove("active");
+        mobileMenuBtn.classList.remove("active");
+      });
+    });
   }
 
   // Scroll suave para navegación
