@@ -842,7 +842,7 @@ body {
   color: var(--gray-900);
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
   .mobile-menu-btn {
     display: flex;
@@ -850,6 +850,21 @@ body {
 
   .nav-menu {
     display: none;
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    box-shadow: var(--shadow);
+    z-index: 1001;
+  }
+
+  .nav-menu.active {
+    display: flex;
   }
 
   .hero-actions {
