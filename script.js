@@ -37,7 +37,7 @@ const productos = [
     nombre: "Botines de Rugby",
     precio: 35000,
     categoria: "calzado",
-    imagen: "/placeholder.svg?height=300&width=300",
+    imagen: "/imagenes/botines_jcs.jpg",
     descripcion: "Botines profesionales de rugby con tapones intercambiables y máximo agarre.",
   },
   {
@@ -45,7 +45,7 @@ const productos = [
     nombre: "Medias Oficiales",
     precio: 2500,
     categoria: "accesorios",
-    imagen: "/placeholder.svg?height=300&width=300",
+    imagen: "/imagenes/medias_jcs.png",
     descripcion: "Medias oficiales del club, cómodas y resistentes para entrenamientos y partidos.",
   },
 ]

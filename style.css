@@ -1,4 +1,4 @@
-/* Reset y Variables Modernas */
+
 * {
   margin: 0;
   padding: 0;
@@ -535,8 +535,13 @@ body {
 /* Productos Section */
 .productos {
   padding: 6rem 0;
-  background-image: url(/imagenes/portada-golf.webp) ;
-
+  background-image: url(/imagenes/portada-golf.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  min-height: 100vh;
 }
 
 .productos-grid {
@@ -560,10 +565,12 @@ body {
   box-shadow: var(--shadow-xl);
 }
 
-.producto-card img {
+.producto-card img.full-image {
   width: 100%;
   height: 250px;
-  object-fit: cover;
+  object-fit: contain; /* Muestra toda la imagen sin cortar */
+  object-position: center;
+  background: #f8f9fa; /* Fondo gris claro para rellenar espacios */
 }
 
 .producto-info {
