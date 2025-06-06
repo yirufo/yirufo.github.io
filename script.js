@@ -19,7 +19,7 @@ const productos = [
   {
     id: 3,
     nombre: "Gorra Oficial",
-    precio: 14500,
+    precio: 35500,
     categoria: "accesorios",
     imagen: "/imagenes/gorra_jcs.jpg",
     descripcion: "Gorra oficial del club con bordado del escudo y colores institucionales.",
@@ -27,7 +27,7 @@ const productos = [
   {
     id: 4,
     nombre: "Campera Rompeviento",
-    precio: 75000,
+    precio: 115000,
     categoria: "campera",
     imagen: "/imagenes/campera_jcs.jpg",
     descripcion: "Campera original en colores rojo y blanco.",
@@ -35,7 +35,7 @@ const productos = [
   {
     id: 5,
     nombre: "Botines de Rugby",
-    precio: 35000,
+    precio: 235000,
     categoria: "calzado",
     imagen: "/imagenes/botines_jcs.jpg",
     descripcion: "Botines profesionales de rugby con tapones intercambiables y máximo agarre.",
@@ -43,7 +43,7 @@ const productos = [
   {
     id: 6,
     nombre: "Medias Oficiales",
-    precio: 2500,
+    precio: 12500,
     categoria: "accesorios",
     imagen: "/imagenes/medias_jcs.png",
     descripcion: "Medias oficiales del club, cómodas y resistentes para entrenamientos y partidos.",

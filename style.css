@@ -757,6 +757,33 @@ body {
   height: 1.25rem;
 }
 
+.social-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; 
+    margin: 20px 0;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-2px);
+}
+
+.social-icon{
+  width: 2rem;
+  height: 2rem;
+}
+
 .footer-links {
   display: flex;
   gap: 3rem;
@@ -1088,8 +1115,14 @@ body {
 
 /* Página de Productos */
 .page-header {
-  padding: 8rem 0 4rem;
-  background: linear-gradient(135deg, var(--primary-red-light) 0%, var(--white) 100%);
+  background-image: url("/imagenes/amigos.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 60px;
+  text-align: center;
+  position: relative;
+  margin-top: 80px;
 }
 
 .productos-catalog {
