@@ -89,7 +89,7 @@ function setupMobileNav() {
       navMenu.classList.toggle("active");
       mobileMenuBtn.classList.toggle("active");
       
-      // Agrega esto para depuración
+      
       console.log("Menú toggle:", navMenu.classList.contains("active"));
     });
     
